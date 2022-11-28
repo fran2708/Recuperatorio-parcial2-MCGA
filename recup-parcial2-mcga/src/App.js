@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// import React from "react";
+// import { Route, Routes, BrowserRouter } from "react-router-dom";
+// import "./App.css";
+// import Layout from "./Components/Layout";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// import Users from "./Screens/Users";
+// import Test from "./Screens/test";
 
-export default App;
+// import store from "./Redux/store";
+// // import SharedForm from "./sharedForm";
+
+// function App() {
+//   const state = store.getState();
+
+//   const addProduct = (e) => {
+//     e.preventDefault();
+//   };
+
+//   return (
+//     <BrowserRouter>
+//       <Layout>
+//         <Routes>
+//           <Route exact path="/users" element={<Users />} />
+//           <Route exact path="/test" element={<Test />} />
+//         </Routes>
+//       </Layout>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
