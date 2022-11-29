@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect} from "react";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
 import { useForm } from "react-hook-form";
 import styles from "./test.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { getUsers } from "../../Redux/Users/thunks";
 
 const Test = () => {
+    const dispatch = useDispatch();
+
+    const { isLoading, users: usersList, error } = useSelector((state) => state);
+  
+    console.log(usersList, "USUARIOS");
+  
+    useEffect(() => {
+      dispatch(getUsers());
+    }, [dispatch]);
+
     const { register, reset, setValue, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         console.log(data)
@@ -50,6 +62,13 @@ const Test = () => {
                     </Button>
                 </div>
             </form>
+            
+            <ul>
+                {usersList.map((product) => {
+                return <li key={product.id}>{(product.id, product.description)}</li>;
+                })}
+            </ul>
+
         </>
     );
   };

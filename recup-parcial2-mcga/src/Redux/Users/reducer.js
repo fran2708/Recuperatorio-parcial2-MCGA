@@ -14,7 +14,17 @@ import {
   } from "./types";
   
   const INITIAL_STATE_VALUE = {
-    users: [],
+    users: [{
+      _id: 638, 
+      name: "Franco",
+      lastname: "Paladini",
+      dateofbirth: "1996-08-27",
+      dni: 39694061,
+      age: 26,
+      nationality: "Argentina",
+      email: "francopaladini2708@gmail.com",
+      password: "admin1"
+  }],
     isLoading: false,
     error: false,
     message: "",

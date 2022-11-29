@@ -13,22 +13,59 @@ import {
     getUserError,
   } from "./actions";
   
+//   export const getUsers = () => {
+//     return async (dispatch) => {
+//       dispatch(getUserLoading());
+//       try {
+//         const response = await fetch(
+//           `${process.env.REACT_APP_API_URL}/api/Users`,
+//           {
+//             method: "GET",
+//             headers: { "Access-Control-Allow-Origin": "*" },
+//             mode: "cors",
+//           }
+//         );
+//         console.log(response);
+//         const json = await response.json();
+//         console.log("after awaited response", json);
+//         if (response.status !== 200) {
+//             dispatch(getUserError(json.toString()));
+//             console.log(response.status);
+//         } else {
+//             dispatch(getUserSuccess(json.data));
+//             console.log(json);
+//             console.log("sent users");
+//         }
+//       } catch (error) {
+//         dispatch(getUserError(error.toString()));
+//         console.log("didn't send users");
+//         console.log(error);
+//       }
+//     };
+//   };
+
   export const getUsers = () => {
     return async (dispatch) => {
       dispatch(getUserLoading());
       try {
         const response = await fetch(
           `${process.env.REACT_APP_API_URL}/api/Users`,
-          {
-            method: "GET",
-            headers: new Headers({ "Content-type": "application/json" }),
-            mode: "no-cors",
-          }
+          // {
+          //   method: "GET",
+          //   headers: { "Access-Control-Allow-Origin": "*" },
+          //   mode: "cors"
+          // }
         );
         const json = await response.json();
-        dispatch(getUserSuccess(json.data));
-        console.log(json);
+        console.log("KINDA WORKING", json);
+        if (response.status !== 200) {
+          dispatch(getUserError(json.toString()));
+        } else {
+          dispatch(getUserSuccess(json));
+          console.log("WORKING");
+        }
       } catch (error) {
+        console.log(error, "ESTE ES EL ERROR");
         dispatch(getUserError(error.toString()));
       }
     };
